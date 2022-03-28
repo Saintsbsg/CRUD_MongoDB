@@ -51,7 +51,17 @@ app.put("/usuario/:id", async (req, res) =>{
     }else{
         res.status(404);
     }
-})
+});
+
+app.delete("/usuario/:id", async (req, res) =>{
+    let id = req.params.id;
+    let user = await userService.delete(id);
+    if(user){
+        res.status(200).send("Ok");
+    }else{
+        res.status(404);
+    }
+});
 
 
 app.listen(8080, ()=>{

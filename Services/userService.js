@@ -48,6 +48,20 @@ class userService{
             return false;
         }
     }
+
+    async delete(id){
+            try {
+             await  User.findByIdAndDelete({_id: id});
+             return true;
+            } catch (error) {
+                console.log(error);
+                return false;
+            }
+
+        
+    }
 }
+
+
 
 module.exports = new userService();
